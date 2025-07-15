@@ -574,11 +574,13 @@
             100% { background-position: 0% 50%; }
         }
         
+        /* --- Toast Notification --- */
         #toast-notification {
             position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            /* Positioned above the watermark */
+            bottom: 85px; 
+            left: 25px;
+            /* Removed transform for left alignment */
             background-color: #222;
             color: #fff;
             padding: 12px 25px;
@@ -593,10 +595,11 @@
         #toast-notification.show {
             opacity: 1;
             visibility: visible;
-            bottom: 30px;
+            /* Adjusted for slide-up effect */
+            bottom: 95px; 
         }
 
-        /* Watermark Styles */
+        /* --- Watermark Styles --- */
         :root {
             --glow-color: hsl(186, 100%, 50%);
             --background-color: rgba(10, 25, 40, 0.85);
@@ -730,7 +733,7 @@
             white-space: nowrap;
         }
 
-        /* Music and Dark Mode Controls */
+        /* --- Music and Dark Mode Controls --- */
         .ui-control-button {
             background: #121212;
             color: white;
@@ -1019,10 +1022,13 @@ aku akhir dari semua yang datang.</p>
                         contentToReveal.classList.remove('hidden');
                         
                         // Play music and handle potential errors
-                        bgMusic.play().catch(error => {
-                            console.error("Gagal memutar musik:", error);
-                            showToast("Browser memblokir pemutaran otomatis.");
-                        });
+                        const playPromise = bgMusic.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.error("Gagal memutar musik:", error);
+                                showToast("Browser memblokir pemutaran otomatis.");
+                            });
+                        }
                         
                         // Show music controls
                         musicControls.classList.add('visible');
