@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5680333985825250"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MLBB BY ONE PROFESIONAL - Edisi Event Fazry</title>
@@ -54,13 +52,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-        }
-        
-        /* STYLE UNTUK WADAH IKLAN */
-        .ad-container {
-            margin: 40px auto;
-            text-align: center;
-            width: 100%;
         }
 
         header {
@@ -238,7 +229,6 @@
             margin-top: 0;
         }
         
-        /* ... Sisa CSS Anda tetap sama ... */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -850,17 +840,6 @@
             </nav>
         </header>
 
-        <div class="ad-container">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5680333985825250"
-                 data-ad-slot="1111111111" data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
         <main>
             <section id="home" class="hero">
                 <div class="hero-image skeleton">
@@ -935,17 +914,6 @@ aku akhir dari semua yang datang.</p>
                     </div>
                 </section>
                 
-                <div class="ad-container">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-5680333985825250"
-                         data-ad-slot="2222222222" data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
                 <section id="special-event" class="event-section">
                     <div class="event-header">
                         <h2 class="event-title">EVENT SPESIAL: <span>SATU LAWAN SATU</span></h2>
@@ -1036,17 +1004,6 @@ aku akhir dari semua yang datang.</p>
         </main>
 
         <footer id="about">
-            <div class="ad-container">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-5680333985825250"
-                     data-ad-slot="3333333333" data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            
             <div class="footer-links">
                 <a href="#">Ketentuan</a>
                 <a href="#">Privasi</a>
@@ -1058,22 +1015,25 @@ aku akhir dari semua yang datang.</p>
     </div>
 
     <div id="toast-notification"></div>
+    
     <div id="dark-mode-toggle">
         <button class="ui-control-button" title="Toggle Dark/Light Mode">🌓</button>
     </div>
+
     <div id="music-controls">
         <button id="music-toggle-btn" class="ui-control-button" title="Toggle Music">
             <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
             <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="1" x2="1" y2="23"></line></svg>
         </button>
     </div>
+    
     <audio id="background-music" loop>
         <source src="https://c.top4top.io/m_3457ukcau0.mp3" type="audio/mpeg">
         Browser Anda tidak mendukung elemen audio.
     </audio>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ... Sisa JavaScript Anda tetap sama ...
             const revealButton = document.getElementById('reveal-button');
             const contentToReveal = document.getElementById('main-content');
             const bgMusic = document.getElementById('background-music');
