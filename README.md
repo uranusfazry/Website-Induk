@@ -1,4 +1,4 @@
-# MLBB BY ONE PROFESIONAL – Duel Arena Gelap 1v1
+# Uranusfazry MLBB BY ONE PROFESIONAL – Duel Arena Gelap 1v1
 
 Selamat datang di **MLBB BY ONE PROFESIONAL**, arena duel mobile legends yang mematikan, atmosfernya gelap, dan hanya yang terkuat yang bertahan.
 
@@ -44,3 +44,17 @@ Tantang **Sang Master Fazry** sekarang. Buktikan bahwa darahmu pantas menjadi sa
 
 - **Estetika Gelap & Sinematik** — Visual bergaya fantasi gelap dengan elemen dramatis, menyandingkan kesan misteri dan kekuatan.  
 - **Naskah Naratif Dramatis** — Kala narasi berbicara: “Bayangan menyelimuti tiap inci tanah, jeritan kekalahan memekakkan langkah…” — membangkitkan sensasi epik dan tegang penuh emosi (sumber: situs) 0.
+
+---
+
+##  Tips Pengembangan Lanjutan
+
+Untuk memperkaya README ini:
+
+- Tambahkan bagian **Teknologi & Framework** (seperti: Next.js, Tailwind CSS, dsb.) jika tersedia.  
+- Lampirkan **tautan ke repositori GitHub** agar pengembang lain bisa berkontribusi atau belajar dari kode.  
+- Sertakan **panduan pengembangan lokal** (setup, build, deploy) untuk memudahkan kolaborasi atau deployment ulang.
+
+---
+
+README ini dirancang untuk menjadi representasi profesional yang dramatis serta memikat, sesuai dengan karakter unik situs **MLBB BY ONE PROFESIONAL**.1
