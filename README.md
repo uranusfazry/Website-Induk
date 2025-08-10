@@ -1,18 +1,18 @@
-# Uranusfazry MLBB BY ONE PROFESIONAL – Duel Arena Gelap 1v1
+# ⚔️ Uranusfazry MLBB BY ONE PROFESSIONAL – Duel Arena Gelap 1v1
 
-Selamat datang di **MLBB BY ONE PROFESIONAL**, arena duel mobile legends yang mematikan, atmosfernya gelap, dan hanya yang terkuat yang bertahan.
+Selamat datang di **MLBB BY ONE PROFESSIONAL**, arena duel *Mobile Legends* yang mematikan, atmosfernya gelap, dan hanya yang terkuat yang bertahan.
 
 ---
 
-##  Konsep & Narasi
+## 🌑 Konsep & Narasi
 
-- **Arena Kegelapan** — Masuki medan pertempuran 1v1 di tengah ambang kehancuran, di mana setiap tindakan diuji dengan darah dan ambisi.  
+- **Arena Kegelapan** — Medan pertempuran 1v1 di ambang kehancuran, di mana setiap tindakan diuji dengan darah dan ambisi.  
 - **Sang Raja Terakhir** — Hadir sebagai **Uranus Fazry**, entitas gelap yang tak terkalahkan. Penguasa terakhir yang menantikan penantang sejati.  
-- **Duel Brutal** — Pertarungan tanpa ampun; hanya kekuatan, ketabahan, dan keberanian yang menentukan siapa yang bertahan hidup.
+- **Duel Brutal** — Pertarungan tanpa ampun; hanya kekuatan, ketabahan, dan keberanian yang menentukan siapa bertahan hidup.
 
 ---
 
-##  Fitur Utama
+## 🔥 Fitur Utama
 
 - **Pertarungan 1v1 Intens**  
   Duel darah dingin—hanya satu yang keluar sebagai pemenang, sisanya hanyalah bayangan yang dilupakan.
@@ -25,36 +25,40 @@ Selamat datang di **MLBB BY ONE PROFESIONAL**, arena duel mobile legends yang me
 
 ---
 
-##  Event Spesial: “Satu Lawan Satu”
+## 🎯 Event Spesial: “Satu Lawan Satu”
 
-Tantang **Sang Master Fazry** sekarang. Buktikan bahwa darahmu pantas menjadi saksi dominasi—ataukah kau hanya sekadar tumbal dalam bayangan? 
+Tantang **Sang Master Fazry** sekarang.  
+Buktikan darahmu pantas menjadi saksi dominasi — atau kau hanya tumbal dalam bayangan.  
 
 ---
 
-##  Navigasi Halaman
+## 🗂 Navigasi Halaman
 
 - **Home** — Halaman utama dengan narasi dan visual memukau tentang arena kegelapan dan penguasa terakhir.  
-- **Event** — Info lebih lanjut mengenai event spesial “Satu Lawan Satu” dan detail tentang kompetisi.  
+- **Event** — Info lebih lanjut mengenai event spesial “Satu Lawan Satu”.  
 - **Fitur** — Penjelasan fitur inti permainan: duel, peringkat, hadiah, dan atmosfer gelap.  
-- **Duel** — Aksi utama dimulai: klik **“MULAI DUEL SEKARANG”** untuk langsung masuk ke arena penuh tantangan.
+- **Duel** — Aksi dimulai: klik **“MULAI DUEL SEKARANG”** untuk masuk ke arena.
 
 ---
 
-##  Tone & Visual
+## 🎨 Tone & Visual
 
-- **Estetika Gelap & Sinematik** — Visual bergaya fantasi gelap dengan elemen dramatis, menyandingkan kesan misteri dan kekuatan.  
-- **Naskah Naratif Dramatis** — Kala narasi berbicara: “Bayangan menyelimuti tiap inci tanah, jeritan kekalahan memekakkan langkah…” — membangkitkan sensasi epik dan tegang penuh emosi (sumber: situs) 0.
-
----
-
-##  Tips Pengembangan Lanjutan
-
-Untuk memperkaya README ini:
-
-- Tambahkan bagian **Teknologi & Framework** (seperti: Next.js, Tailwind CSS, dsb.) jika tersedia.  
-- Lampirkan **tautan ke repositori GitHub** agar pengembang lain bisa berkontribusi atau belajar dari kode.  
-- Sertakan **panduan pengembangan lokal** (setup, build, deploy) untuk memudahkan kolaborasi atau deployment ulang.
+- **Estetika Gelap & Sinematik** — Visual fantasi gelap dengan elemen dramatis, menyandingkan kesan misteri dan kekuatan.  
+- **Narasi Dramatis** — “Bayangan menyelimuti tiap inci tanah, jeritan kekalahan memekakkan langkah…” — membangkitkan sensasi epik dan tegang.
 
 ---
 
-README ini dirancang untuk menjadi representasi profesional yang dramatis serta memikat, sesuai dengan karakter unik situs **MLBB BY ONE PROFESIONAL**.1
+## 🚀 Teknologi & Framework *(Opsional)*
+
+- **Frontend:** Next.js + Tailwind CSS  
+- **Hosting:** Vercel  
+- **Optimisasi:** SEO, animasi CSS/GSAP, dan efek visual gelap.
+
+---
+
+## 💻 Setup Lokal *(Opsional)*
+
+1. Clone repositori ini:
+   ```bash
+   git clone https://github.com/username/mlbb-by-one.git
+   cd mlbb-by-one
