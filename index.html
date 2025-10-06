@@ -3,329 +3,669 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uranusfazry BY ONE PROFESIONAL MLBB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Uranusfazry BY ONE Professional MLBB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark-primary: #0a0a0a;
-            --dark-secondary: #121212;
-            --accent-red: #d92b2b;
-            --accent-red-rgb: 217, 43, 43;
-            --accent-blue: #2b5fd9;
-            --text-primary: #e0e0e0;
-            --text-secondary: #9e9e9e;
-            --glow-effect: 0 0 15px rgba(217, 43, 43, 0.7);
-        }
-
-        /* Light mode theme variables */
-        body.light-mode {
-            --dark-primary: #f5f5f5;
-            --dark-secondary: #ffffff;
-            --text-primary: #121212;
-            --text-secondary: #424242;
-            --glow-effect: 0 0 15px rgba(43, 93, 217, 0.5);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-void: #0a0a0a;
+            --bg-abyss: #12091a;
+            --bg-shadow: #1a0b2e;
+            --accent-blood: #8b0000;
+            --accent-crimson: #dc143c;
+            --accent-violet: #6a0dad;
+            --accent-neon: #b026ff;
+            --text-ghost: #e8e8f0;
+            --text-fog: #9d9dad;
+            --text-mist: #6a6a7a;
+            --glow-red: 0 0 20px rgba(220, 20, 60, 0.6), 0 0 40px rgba(220, 20, 60, 0.3);
+            --glow-purple: 0 0 20px rgba(176, 38, 255, 0.6), 0 0 40px rgba(176, 38, 255, 0.3);
         }
 
         body {
-            background-color: var(--dark-primary);
-            color: var(--text-primary);
-            background-image:
-                radial-gradient(circle at 25% 25%, rgba(var(--accent-red-rgb), 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(43, 93, 217, 0.1) 0%, transparent 50%);
-            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-void);
+            color: var(--text-ghost);
             overflow-x: hidden;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-        
-        body.light-mode {
-            background-image: none;
+            position: relative;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Animated Background Effects */
+        .void-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(106, 13, 173, 0.15) 0%, transparent 50%);
         }
 
+        .particle-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(220, 20, 60, 0.4);
+            border-radius: 50%;
+            animation: float-particle 15s infinite ease-in-out;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translate(0, 0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(100px, -100vh); opacity: 0; }
+        }
+
+        /* Glitch Effect */
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .glitch {
+            position: relative;
+            animation: glitch 0.3s infinite;
+        }
+
+        /* Header Styles */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(220, 20, 60, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(18, 9, 26, 0.95);
+            box-shadow: var(--glow-red);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        body.light-mode header {
-            border-bottom-color: rgba(0, 0, 0, 0.1);
         }
 
-        .logo {
+        .logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 1rem;
         }
 
-        .logo img {
+        .logo-img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            object-fit: cover;
-            box-shadow: var(--glow-effect);
-            transition: box-shadow 0.4s ease;
+            border: 2px solid var(--accent-crimson);
+            box-shadow: var(--glow-red);
+            transition: all 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: rotate(360deg) scale(1.1);
         }
 
         .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--accent-red), var(--accent-blue));
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-crimson), var(--accent-neon));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: var(--glow-red);
+            letter-spacing: 2px;
         }
 
         nav ul {
             display: flex;
-            gap: 25px;
+            gap: 2.5rem;
             list-style: none;
         }
 
         nav a {
-            color: var(--text-primary);
+            color: var(--text-fog);
             text-decoration: none;
-            transition: all 0.3s ease;
             font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-crimson);
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--accent-red);
+            color: var(--text-ghost);
+            text-shadow: var(--glow-red);
         }
 
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
         .hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            padding: 40px 0;
-            margin-bottom: 50px;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin-bottom: 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            box-shadow: 
+                var(--glow-red),
+                inset 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(220, 20, 60, 0.4),
+                transparent 30%
+            );
+            animation: rotate-border 6s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes rotate-border {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .hero-image {
-            width: 100%;
-            max-width: 800px; /* Increased max-width for bigger impact */
-            height: 450px; /* Set a fixed height for consistent look */
-            margin-bottom: 30px;
-            position: relative;
-            border-radius: 10px;
+            position: absolute;
+            inset: 3px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            background-color: #000;
+            z-index: 2;
         }
 
         .hero-image img {
             width: 100%;
-            height: 100%; /* Make image fill the container */
-            display: block;
-            object-fit: cover; /* Ensures image covers the area without distortion */
-            opacity: 0.8; /* Slightly dim the image to make animation pop */
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.2);
+            transition: all 0.5s ease;
         }
 
-        /* --- Animasi Tetesan Cahaya --- */
-        .magic-rain-container {
+        .hero-image-container:hover img {
+            filter: brightness(0.9) contrast(1.3);
+            transform: scale(1.05);
+        }
+
+        /* Magic Rain Effect */
+        .magic-rain {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            pointer-events: none; /* Allows clicks to go through to elements behind it */
+            pointer-events: none;
+            z-index: 3;
         }
 
         .raindrop {
             position: absolute;
-            bottom: 100%;
-            width: 2px;
+            width: 1px;
             height: 80px;
-            background: linear-gradient(to bottom, rgba(173, 216, 230, 0), rgba(173, 216, 230, 0.7));
-            animation: fall linear infinite;
+            background: linear-gradient(to bottom, transparent, rgba(176, 38, 255, 0.8));
+            animation: rain-fall linear infinite;
         }
 
-        @keyframes fall {
-            to {
-                transform: translateY(120vh); /* Fall further to ensure it's off-screen */
-            }
+        @keyframes rain-fall {
+            to { transform: translateY(120vh); }
         }
 
-        /* Randomize raindrops */
-        .raindrop:nth-child(1) { left: 10%; animation-duration: 1.2s; animation-delay: 0.5s; height: 60px; opacity: 0.6; }
-        .raindrop:nth-child(2) { left: 20%; animation-duration: 0.8s; animation-delay: 0.2s; }
-        .raindrop:nth-child(3) { left: 30%; animation-duration: 1.5s; animation-delay: 1.1s; height: 50px; }
-        .raindrop:nth-child(4) { left: 40%; animation-duration: 1.1s; animation-delay: 0.8s; opacity: 0.7; }
-        .raindrop:nth-child(5) { left: 50%; animation-duration: 0.9s; animation-delay: 0.1s; height: 90px; }
-        .raindrop:nth-child(6) { left: 60%; animation-duration: 1.3s; animation-delay: 1.4s; }
-        .raindrop:nth-child(7) { left: 70%; animation-duration: 0.7s; animation-delay: 0.4s; height: 70px; opacity: 0.8; }
-        .raindrop:nth-child(8) { left: 80%; animation-duration: 1.4s; animation-delay: 0.9s; }
-        .raindrop:nth-child(9) { left: 90%; animation-duration: 1.0s; animation-delay: 0.3s; height: 65px; }
-        .raindrop:nth-child(10) { left: 5%; animation-duration: 1.6s; animation-delay: 1s; opacity: 0.5; }
-        .raindrop:nth-child(11) { left: 25%; animation-duration: 0.8s; animation-delay: 1.2s; height: 85px; }
-        .raindrop:nth-child(12) { left: 85%; animation-duration: 1.2s; animation-delay: 0.1s; }
-        /* --- Akhir Animasi --- */
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            z-index: 10;
+        }
 
-        .hero-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--accent-red), var(--accent-blue));
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--accent-crimson), var(--accent-neon), var(--accent-crimson));
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradient-flow 5s ease infinite;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        .hero-text p {
+        @keyframes gradient-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-poem {
             font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 25px;
-            line-height: 1.7;
-            white-space: pre-wrap;
+            line-height: 1.8;
+            color: var(--text-fog);
+            margin-bottom: 2.5rem;
+            white-space: pre-line;
             font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* Button Styles */
         .cta-button {
-            background: linear-gradient(45deg, var(--accent-red), var(--accent-blue));
-            color: white;
-            border: none;
-            padding: 12px 30px;
+            position: relative;
+            padding: 1rem 3rem;
             font-size: 1.1rem;
-            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            background: linear-gradient(135deg, var(--accent-blood), var(--accent-violet));
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
+            overflow: hidden;
+            box-shadow: var(--glow-red);
             transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(var(--accent-red-rgb), 0.4);
-            text-decoration: none;
-            display: inline-block;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(var(--accent-red-rgb), 0.6);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                var(--glow-red),
+                0 10px 30px rgba(220, 20, 60, 0.5);
         }
-        
+
+        /* Content Reveal */
         #main-content {
             opacity: 1;
-            max-height: 10000px;
-            transition: opacity 1s ease-in-out, max-height 1.5s ease-in-out, margin-top 1s ease;
-            overflow: hidden;
-            margin-top: 0;
+            max-height: 100000px;
+            transition: opacity 1s ease, max-height 1.5s ease;
         }
 
         #main-content.hidden {
             opacity: 0;
             max-height: 0;
-            margin-top: 0;
+            overflow: hidden;
         }
-        
-        .features {
+
+        /* Feature Cards */
+        .features-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, var(--accent-crimson), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .feature-card {
-            background-color: var(--dark-secondary);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            background: rgba(26, 11, 46, 0.6);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        
-        body.light-mode .feature-card {
-            border-color: rgba(0, 0, 0, 0.08);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(176, 38, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border-color: rgba(var(--accent-red-rgb), 0.3);
+            transform: translateY(-10px);
+            border-color: var(--accent-crimson);
+            box-shadow: var(--glow-red);
         }
 
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-red);
-            height: 40px;
-            width: 40px;
-        }
-        
-        .feature-icon svg {
-            fill: currentColor;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            color: var(--accent-crimson);
+            filter: drop-shadow(var(--glow-red));
         }
 
         .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-ghost);
         }
 
         .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
+            color: var(--text-fog);
+            line-height: 1.8;
         }
 
-        .duel-section {
+        /* Event Section */
+        .event-section {
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-abyss), var(--bg-shadow));
+            border-top: 2px solid rgba(220, 20, 60, 0.3);
+            border-bottom: 2px solid rgba(220, 20, 60, 0.3);
+        }
+
+        .event-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220, 20, 60, 0.2), transparent 40%);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+
+        .event-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 4rem;
         }
 
-        .duel-section h2 {
+        .event-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--text-ghost);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .event-title span {
+            background: linear-gradient(135deg, var(--accent-crimson), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--glow-red);
+        }
+
+        .event-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-fog);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .event-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .master-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 2px solid var(--accent-crimson);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--glow-red);
+            animation: pulse-card 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-card {
+            0%, 100% { box-shadow: var(--glow-red); }
+            50% { box-shadow: 0 0 30px rgba(220, 20, 60, 0.8), 0 0 60px rgba(220, 20, 60, 0.5); }
+        }
+
+        .master-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--accent-crimson);
+            overflow: hidden;
+            box-shadow: var(--glow-red);
+        }
+
+        .master-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .master-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--accent-crimson);
+        }
+
+        .master-rank {
+            color: var(--text-fog);
+            font-size: 1rem;
+        }
+
+        .rules-section h3 {
+            font-family: 'Exo 2', sans-serif;
             font-size: 2rem;
-            margin-bottom: 40px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-crimson);
+            border-bottom: 2px solid var(--accent-crimson);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .rules-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .rules-list li {
+            background: rgba(26, 11, 46, 0.5);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-left: 4px solid var(--accent-crimson);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .rules-list li:hover {
+            transform: translateX(10px);
+            background: rgba(220, 20, 60, 0.1);
+            border-color: var(--accent-crimson);
+        }
+
+        .rules-list li strong {
+            color: var(--accent-crimson);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .rules-list ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            color: var(--text-fog);
+        }
+
+        /* Duel Section */
+        .duel-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .duel-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .duel-player {
-            width: 300px;
-            background-color: var(--dark-secondary);
-            border-radius: 10px;
-            padding: 30px;
             position: relative;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            background: rgba(26, 11, 46, 0.6);
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .duel-player::before {
+            content: 'VS';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-void);
+            border: 2px solid var(--accent-crimson);
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--accent-crimson);
+            box-shadow: var(--glow-red);
         }
 
         .duel-player:hover {
-            transform: scale(1.03);
-        }
-
-        .player-red {
-            border-top: 5px solid var(--accent-red);
-        }
-
-        .player-blue {
-            border-top: 5px solid var(--accent-blue);
+            transform: translateY(-10px);
+            border-color: var(--accent-crimson);
+            box-shadow: var(--glow-red);
         }
 
         .player-avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--accent-crimson);
             overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--glow-red);
         }
 
         .player-avatar img {
@@ -335,533 +675,241 @@
         }
 
         .player-name {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-ghost);
         }
 
         .player-rank {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            color: var(--text-fog);
+            margin-bottom: 1.5rem;
         }
-        
-        .player-socials {
+
+        .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: auto;
-            padding-top: 15px;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
-        
-        .player-socials a {
-            color: var(--text-secondary);
-            transition: color 0.3s ease;
+
+        .social-links a {
+            color: var(--text-fog);
+            transition: all 0.3s ease;
         }
-        
-        .player-socials a:hover {
-            color: var(--text-primary);
+
+        .social-links a:hover {
+            color: var(--accent-crimson);
+            transform: translateY(-3px);
         }
-        
-        .player-socials svg {
+
+        .social-links svg {
             width: 24px;
             height: 24px;
         }
 
-        .vs-circle {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: var(--dark-primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .duel-button {
-            margin-top: 20px;
-            background: linear-gradient(45deg, var(--accent-red), var(--accent-blue));
+        .duel-btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--accent-blood), var(--accent-violet));
             color: white;
             border: none;
-            padding: 10px 25px;
             border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .duel-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(var(--accent-red-rgb), 0.5);
-        }
-        
-        .event-section {
-            padding: 50px 20px;
-            margin: 80px 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            background: var(--dark-secondary);
-            border: 1px solid rgba(var(--accent-red-rgb), 0.3);
-        }
-        
-        .event-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(var(--accent-red-rgb), 0.15), transparent 40%);
-            animation: rotate-glow 15s linear infinite;
-        }
-        
-        @keyframes rotate-glow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .event-header {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .event-header .event-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .event-header .event-title span {
-            background: linear-gradient(to right, var(--accent-red), #ff7e5f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .event-header .event-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .event-layout {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 50px;
-            align-items: center;
-            position: relative;
-        }
-        
-        .master-column {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .master-card {
-            background-color: #000;
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 20px rgba(var(--accent-red-rgb), 0.5), 0 0 40px rgba(var(--accent-red-rgb), 0.3);
-            animation: pulse-glow 2s infinite alternate;
-        }
-
-        @keyframes pulse-glow {
-            from { box-shadow: 0 0 20px rgba(var(--accent-red-rgb), 0.5), 0 0 40px rgba(var(--accent-red-rgb), 0.3); }
-            to { box-shadow: 0 0 30px rgba(var(--accent-red-rgb), 0.7), 0 0 60px rgba(var(--accent-red-rgb), 0.5); }
-        }
-        
-        .rules-column h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-red);
-            display: inline-block;
-        }
-
-        .rules-list {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .rules-list li {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-left: 5px solid var(--accent-red);
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .rules-list li:hover {
-            transform: translateX(10px);
-            background: rgba(var(--accent-red-rgb), 0.1);
-        }
-
-        .rules-list li strong {
-            color: var(--accent-red);
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .rules-list ul {
-            padding-left: 20px;
-            margin-top: 10px;
-            color: var(--text-secondary);
-        }
-
-        .challenge-footer {
-            text-align: center;
-            margin-top: 60px;
-            position: relative;
-        }
-        
-        .challenge-footer p {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .trakteer-button {
-            font-size: 1.2rem;
-            padding: 15px 40px;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 60px;
+        .duel-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-red);
         }
-        
-        body.light-mode footer {
-            border-top-color: rgba(0, 0, 0, 0.1);
+
+        /* Footer */
+        footer {
+            background: var(--bg-abyss);
+            border-top: 1px solid rgba(220, 20, 60, 0.3);
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links a {
-            color: var(--text-secondary);
+            color: var(--text-fog);
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--text-primary);
+            color: var(--accent-crimson);
         }
 
         .copyright {
-            color: var(--text-secondary);
+            color: var(--text-mist);
             font-size: 0.9rem;
         }
 
+        /* UI Controls */
+        .ui-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(26, 11, 46, 0.8);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            color: var(--text-ghost);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(220, 20, 60, 0.3);
+            border-color: var(--accent-crimson);
+            transform: scale(1.1);
+            box-shadow: var(--glow-red);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 6rem;
+            left: 2rem;
+            background: rgba(26, 11, 46, 0.95);
+            border: 1px solid var(--accent-crimson);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            color: var(--text-ghost);
+            box-shadow: var(--glow-red);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            z-index: 200;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 7rem;
+        }
+
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(26, 11, 46, 0.9);
+            border: 1px solid rgba(220, 20, 60, 0.3);
+            border-radius: 50px;
+            color: var(--text-ghost);
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(15px);
+            box-shadow: var(--glow-red);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 150;
+        }
+
+        .watermark:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(220, 20, 60, 0.8);
+        }
+
+        /* Responsive Design */
         @media (max-width: 992px) {
             .event-layout {
                 grid-template-columns: 1fr;
-                gap: 60px;
             }
-            .master-column {
-                order: -1;
+
+            .header-container {
+                flex-direction: column;
+                gap: 1.5rem;
             }
-            .rules-column {
-                text-align: center;
-            }
-            .rules-column h3 {
-                display: inline-block;
-            }
-            .rules-list li {
-                text-align: left;
+
+            nav ul {
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 20px; }
-            nav ul { gap: 15px; }
-            .hero-text h1 { font-size: 2rem; }
-            .duel-container { flex-direction: column; align-items: center; gap: 70px; }
-            .duel-player { margin-bottom: 30px; }
-            .event-header .event-title { font-size: 2.2rem; }
-        }
+            .hero-image-container {
+                height: 300px;
+            }
 
-        .skeleton {
-            background: linear-gradient(90deg, #2a2a2a, #3a3a3a, #2a2a2a);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite linear;
-        }
-        
-        body.light-mode .skeleton {
-            background: linear-gradient(90deg, #e0e0e0, #f0f0f0, #e0e0e0);
-        }
+            .features-grid,
+            .duel-container {
+                grid-template-columns: 1fr;
+            }
 
-        @keyframes skeleton-loading {
-            0% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        #toast-notification {
-            position: fixed;
-            bottom: 85px; 
-            left: 25px;
-            background-color: #222;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0.4s ease, bottom 0.4s ease;
-        }
-
-        #toast-notification.show {
-            opacity: 1;
-            visibility: visible;
-            bottom: 95px; 
-        }
-
-        :root {
-            --glow-color: hsl(186, 100%, 50%);
-            --background-color: rgba(10, 25, 40, 0.85);
-            --border-color: rgba(127, 255, 212, 0.3);
-            --text-color: rgba(230, 255, 255, 0.95);
-            --particle-base-hue: 186;
-            --particle-base-lightness: 60;
-        }
-
-        @keyframes slideUpFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes logo3DFlip {
-            0% { transform: rotateY(0deg); filter: brightness(1); }
-            50% { transform: rotateY(180deg); filter: brightness(2) drop-shadow(0 0 8px var(--glow-color)); }
-            100% { transform: rotateY(360deg); filter: brightness(1); }
-        }
-        
-        #futuristic-watermark {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            padding: 8px 15px;
-            min-width: 212px;
-            background: var(--background-color);
-            color: var(--text-color);
-            font-family: 'Roboto Mono', monospace;
-            font-weight: 500;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(var(--glow-color), 0.15),
-                        0 0 30px rgba(var(--glow-color), 0.1),
-                        inset 0 0 10px rgba(var(--glow-color), 0.1);
-            z-index: 9999;
-            cursor: pointer;
-            user-select: none;
-            overflow: hidden;
-            opacity: 0;
-            animation: slideUpFadeIn 1s ease-out 0.5s forwards;
-            transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        
-        #futuristic-watermark:hover {
-            transform: translateY(-5px) scale(1.03);
-            border-color: rgba(127, 255, 212, 0.8);
-            box-shadow: 0 0 25px rgba(var(--glow-color), 0.4),
-                        0 0 50px rgba(var(--glow-color), 0.25),
-                        inset 0 0 12px rgba(var(--glow-color), 0.2);
-        }
-
-        #futuristic-watermark.light-mode {
-            --glow-color: hsl(220, 90%, 60%);
-            --background-color: rgba(245, 248, 252, 0.85);
-            --border-color: rgba(60, 100, 150, 0.3);
-            --text-color: rgba(10, 25, 40, 0.95);
-            --particle-base-hue: 220;
-            --particle-base-lightness: 40;
-        }
-        
-        #particle-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .f-content-wrapper {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 18px;
-        }
-
-        .f-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .f-content.hidden {
-            opacity: 0;
-            pointer-events: none;
-            position: absolute;
-            transform: scale(0.9);
-        }
-
-        .f-logo-container {
-            width: 18px;
-            height: 18px;
-            transition: transform 0.4s ease;
-            flex-shrink: 0;
-        }
-
-        .f-logo-container.reacting {
-            animation: logo3DFlip 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        
-        .f-logo-container svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--glow-color);
-            stroke-width: 8;
-            transition: stroke 0.5s ease;
-        }
-        
-        #f-watermark-text, #f-follow-message {
-            transition: color 0.5s ease;
-        }
-
-        #f-watermark-text {
-            font-size: 12px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        #f-follow-message {
-            font-size: 11px;
-            letter-spacing: 0.2px;
-            font-weight: 700;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .ui-control-button {
-            background: #121212;
-            color: white;
-            border: 1px solid #333;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .ui-control-button:hover {
-            background-color: #222;
-            border-color: var(--accent-red);
-        }
-        body.light-mode .ui-control-button {
-            background: #fff;
-            color: #121212;
-            border-color: #ddd;
-        }
-
-        #dark-mode-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 100;
-        }
-
-        #music-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 80px;
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        #music-controls.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #music-toggle-btn svg {
-            width: 24px;
-            height: 24px;
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="https://i.imghippo.com/files/Nrk3249cc.png" alt="LOGO MLBB BY ONE PROFESIONAL">
-                <div class="logo-text">MLBB BY ONE PROFESIONAL</div>
+    <div class="void-canvas"></div>
+    <div class="particle-field" id="particles"></div>
+
+    <header id="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="https://i.imghippo.com/files/Nrk3249cc.png" alt="BY ONE MLBB" class="logo-img">
+                <div class="logo-text">BY ONE MLBB</div>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#special-event">Event</a></li>
-                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#event">Event</a></li>
                     <li><a href="#duel">Duel</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <section id="home" class="hero">
-                <div class="hero-image skeleton">
-                    <img src="https://i.imghippo.com/files/hdm4266nY.png" alt="Arena fantasi gelap untuk pertarungan 1v1 Mobile Legends" data-img-loader>
-                    <div class="magic-rain-container">
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                        <div class="raindrop"></div>
-                    </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <img src="https://i.imghippo.com/files/hdm4266nY.png" alt="Arena of Darkness">
                 </div>
-                <div class="hero-text">
-                    <h1>BUKTIKAN DOMINASIMU DI ARENA KEGELAPAN</h1>
-                    <p>Masuki pertarungan, arena kegelapan,
+                <div class="magic-rain">
+                    <div class="raindrop" style="left: 10%; animation-duration: 1.2s; animation-delay: 0.5s;"></div>
+                    <div class="raindrop" style="left: 25%; animation-duration: 0.9s; animation-delay: 0.2s;"></div>
+                    <div class="raindrop" style="left: 40%; animation-duration: 1.5s; animation-delay: 0.8s;"></div>
+                    <div class="raindrop" style="left: 55%; animation-duration: 1.1s; animation-delay: 0.3s;"></div>
+                    <div class="raindrop" style="left: 70%; animation-duration: 0.8s; animation-delay: 0.6s;"></div>
+                    <div class="raindrop" style="left: 85%; animation-duration: 1.3s; animation-delay: 0.4s;"></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Buktikan Dominasimu<br>Di Arena Kegelapan</h1>
+                <p class="hero-poem">Masuki pertarungan, arena kegelapan,
 1v1 terselubung kehancuran.
 Mobile Legends jadi medan murka,
 tempat jiwa-jiwa diuji luka.
@@ -871,414 +919,238 @@ membawa harapan, ambisi sekali.
 Namun satu per satu jatuh tak berdaya,
 dalam bayangan yang menelan segalanya.
 
-Bayangan menyelimuti tiap inci tanah,
-jeritan kekalahan memekakkan langkah.
-Satu per satu menghilang perlahan,
-tanpa jejak, tanpa perlawanan.
-
-Tiada ampun, tiada pintu keluar,
-hanya gelap dan akhir yang menggemetar.
-Di tengah darah dan reruntuhan dendam,
-tersisa satu... penunggu kelam.
-
 AKU URANUS FAZRY Sang Raja Terakhir.
-Penghancur harapan yang hadir terakhir.
-Penghapus mimpi para penantang,
-aku akhir dari semua yang datang.</p>
-                    <button id="reveal-button" class="cta-button">MULAI DUEL SEKARANG</button>
-                </div>
-            </section>
-            
-            <div id="main-content" class="hidden">
-                <section id="features" class="features">
-                    <div class="feature-card glow-on-hover">
+Penghancur harapan yang hadir terakhir.</p>
+                <button id="reveal-btn" class="cta-button">Enter The Arena</button>
+            </div>
+        </section>
+
+        <div id="main-content" class="hidden">
+            <section id="features" class="features-section">
+                <h2 class="section-title">Arsenal of Darkness</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.293 3.707a1 1 0 0 1 1.414 0l1.293 1.293a1 1 0 0 1 0 1.414L13.414 14H12v-1.414l7.293-7.293-1-1zM4 20.732a1 1 0 0 1-1.707-.707l1-3.464a1 1 0 0 1 .5-.7L16.586 3.071l4 4L7.793 19.864a1 1 0 0 1-.7.5l-3.464 1a1 1 0 0 1-.629.068z" fill="currentColor"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.293 3.707a1 1 0 0 1 1.414 0l1.293 1.293a1 1 0 0 1 0 1.414L13.414 14H12v-1.414l7.293-7.293-1-1zM4 20.732a1 1 0 0 1-1.707-.707l1-3.464a1 1 0 0 1 .5-.7L16.586 3.071l4 4L7.793 19.864a1 1 0 0 1-.7.5l-3.464 1a1 1 0 0 1-.629.068z"/></svg>
                         </div>
                         <h3>Pertarungan 1v1 Brutal</h3>
                         <p>Masuki duel berdarah tanpa ampun. Uji nyalimu dalam pertarungan satu lawan satu tanpa gangguan, tanpa alasan, dan tanpa belas kasihan. Hanya satu yang berdiri di akhir.</p>
                     </div>
-                    <div class="feature-card glow-on-hover">
+                    <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3zm-9 2h4v16h-4V4zm-2 5h2v11H8V9zm8 3h-2v8h2v-8zM5 4h1v16H5V4zm14 16h-1V4h1v16z" fill="currentColor"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3zm-9 2h4v16h-4V4zm-2 5h2v11H8V9zm8 3h-2v8h2v-8zM5 4h1v16H5V4zm14 16h-1V4h1v16z"/></svg>
                         </div>
                         <h3>Peringkat Arena Gelap</h3>
-                        <p>Naiki tangga bayangan... atau tenggelam dalam kegelapan. Tiap kemenangan mendekatkanmu pada tahta, tapi tiap kekalahan menyeretmu lebih dalam ke jurang tanpa cahaya. Hanya yang terkuat bisa disebut penguasa arena.</p>
+                        <p>Naiki tangga bayangan... atau tenggelam dalam kegelapan. Tiap kemenangan mendekatkanmu pada tahta, tapi tiap kekalahan menyeretmu lebih dalam ke jurang tanpa cahaya.</p>
                     </div>
-                    <div class="feature-card glow-on-hover">
+                    <div class="feature-card">
                         <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         </div>
                         <h3>Hadiah Dari Kegelapan</h3>
-                        <p>Hadiah untuk para penyintas... kutukan bagi yang gagal. Raih skin, lencana, dan gelar bertema kegelapan simbol kejayaan bagi mereka yang menaklukkan Duel Arena. Yang Kuat yang akan bertahan dan yang lemah hanya akan jadi kenangan.</p>
+                        <p>Hadiah untuk para penyintas... kutukan bagi yang gagal. Raih skin, lencana, dan gelar bertema kegelapan simbol kejayaan bagi mereka yang menaklukkan arena.</p>
                     </div>
-                </section>
-                
-                <section id="special-event" class="event-section">
+                </div>
+            </section>
+
+            <section id="event" class="event-section">
+                <div class="event-container">
                     <div class="event-header">
-                        <h2 class="event-title">EVENT SPESIAL: <span>SATU LAWAN SATU</span></h2>
+                        <h2 class="event-title">Event Spesial: <span>Satu Lawan Satu</span></h2>
                         <p class="event-subtitle">Tantang Sang Master Fazry, dan biarkan darahmu jadi bukti... apakah kau layak menjadi Raja, atau sekadar tumbal yang terlupakan di kegelapan.</p>
                     </div>
                     <div class="event-layout">
                         <div class="master-column">
-                            <div class="duel-player master-card">
-                                <div class="player-avatar skeleton">
-                                    <img src="https://i.imghippo.com/files/fBt9701PM.jpg" alt="Master Fazry, Sang Raja Uranus" data-img-loader>
+                            <div class="master-card">
+                                <div class="master-avatar">
+                                    <img src="https://i.imghippo.com/files/fBt9701PM.jpg" alt="Master Fazry">
                                 </div>
-                                <h3 class="player-name">MASTER FAZRY</h3>
-                                <p class="player-rank">Sang Raja Uranus</p>
+                                <h3 class="master-name">MASTER FAZRY</h3>
+                                <p class="master-rank">Sang Raja Uranus</p>
                             </div>
                         </div>
-                        <div class="rules-column">
+                        <div class="rules-section">
                             <h3>Peraturan Satu VS Satu</h3>
                             <ol class="rules-list">
-                                <li><strong>Mode Pertandingan:</strong> Mid Lane only, no buff. Menang dengan 3 kill. Boleh recall.</li>
-                                <li><strong>Format Kemenangan:</strong> Wajib menang 3 match (Best of 3). Jika kalah 1 match, langsung tereliminasi/gugur.</li>
+                                <li>
+                                    <strong>Mode Pertandingan:</strong>
+                                    Mid Lane only, no buff. Menang dengan 3 kill. Boleh recall.
+                                </li>
+                                <li>
+                                    <strong>Format Kemenangan:</strong>
+                                    Wajib menang 3 match (Best of 3). Jika kalah 1 match, langsung tereliminasi/gugur.
+                                </li>
                                 <li>
                                     <strong>Pemilihan Hero:</strong>
                                     <ul>
                                         <li>Match 1: Hero bebas.</li>
                                         <li>Match 2: Hero bebas (tidak boleh sama dengan Match 1).</li>
-                                        <li>Match 3: Wajib memakai salah satu hero yang termasuk dalam event skin yang diinginkan. Contoh: Jika hadiahnya adalah skin kolaborasi Naruto, Anda bisa memilih Suyou(Sasuke), Lukas(Naruto), Kalea(Sakura), Hayabusa(Kakashi). Jika menang, Anda bebas memilih salah satu dari keempat skin tersebut sebagai hadiah.</li>
+                                        <li>Match 3: Wajib memakai salah satu hero yang termasuk dalam event skin yang diinginkan.</li>
                                     </ul>
                                 </li>
                                 <li>
                                     <strong>Struktur Hadiah:</strong>
                                     <ul>
-                                        <li>Menang 1 match: Mendapatkan pengalaman berharga.</li>
-                                        <li>Menang 2 match: Mendapatkan Starlight Premium.</li>
-                                        <li>Menang 3 match: Mendapatkan Skin yang diinginkan sesuai aturan Match 3.</li>
+                                        <li>Menang 1 match: Pengalaman berharga.</li>
+                                        <li>Menang 2 match: Starlight Premium.</li>
+                                        <li>Menang 3 match: Skin yang diinginkan.</li>
                                     </ul>
                                 </li>
                             </ol>
                         </div>
                     </div>
-                    <div class="challenge-footer">
-                        <p>Kalahkan MASTER FAZRY dan dapatkan hadiahnya! Hanya satu orang yang akan menjadi Raja.</p>
-                        <a href="https://trakteer.id/uranusfazry/tip" target="_blank" class="cta-button trakteer-button">1V1 SEKARANG JIKA BERANI☠️</a>
+                    <div style="text-align: center; margin-top: 3rem;">
+                        <p style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-ghost);">Kalahkan MASTER FAZRY dan dapatkan hadiahnya!</p>
+                        <a href="https://trakteer.id/uranusfazry/tip" target="_blank" class="cta-button" style="text-decoration: none; display: inline-block;">1V1 Sekarang Jika Berani</a>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section id="duel" class="duel-section">
-                    <h2>CARI LAWANMU DAN HADAPI MIMPI BURUK YANG BARU</h2>
-                    <div class="duel-container">
-                        <div class="duel-player player-red">
-                            <div class="vs-circle">VS</div>
-                            <div class="player-avatar skeleton">
-                                <img src="https://i.imghippo.com/files/fBt9701PM.jpg" alt="URANUS FAZRY" data-img-loader>
-                            </div>
-                            <h3 class="player-name">URANUS FAZRY</h3>
-                            <p class="player-rank">TOP GLOBAL 1 URANUS</p>
-                             <div class="player-socials">
-                                <a href="https://www.tiktok.com/@uranusfazry?_t=ZS-8y0wmn4w7NJ&_r=1" target="_blank" title="TikTok">
-                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <defs>
-                                            <path id="tiktok-path-shape" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.86-.95-6.69-2.81-1.75-1.76-2.84-4.14-2.82-6.53-.01-1.29.28-2.58.82-3.79 1.06-2.38 3.32-4.21 5.9-4.79 1.02-.22 2.05-.31 3.08-.32.01 2.54-.01 5.08.01 7.63-.01 1.73-1.16 3.2-2.74 3.78-1.58.58-3.35.3-4.76-.69-.4-.28-.76-.63-1.08-1.01-.01-1.02.01-2.04.01-3.06.01-2.2-.08-4.4-.02-6.6.09-1.6.82-3.15 2.02-4.25 1.14-1.03 2.6-1.54 4.1-1.65.02.02.02.02.02.02z"/>
-                                        </defs>
-                                        <g>
-                                            <use href="#tiktok-path-shape" fill="#FE2C55" transform="translate(1.2, 1.2)"/>
-                                            <use href="#tiktok-path-shape" fill="#25F4EE" transform="translate(-1.2, -1.2)"/>
-                                            <use href="#tiktok-path-shape" fill="white"/>
-                                        </g>
-                                    </svg>
-                                </a>
-                            </div>
-                            <button class="duel-button">TANTANG</button>
+            <section id="duel" class="duel-section">
+                <h2 class="section-title">Cari Lawanmu</h2>
+                <div class="duel-container">
+                    <div class="duel-player">
+                        <div class="player-avatar">
+                            <img src="https://i.imghippo.com/files/fBt9701PM.jpg" alt="Uranus Fazry">
                         </div>
-                        <div class="duel-player player-blue">
-                             <div class="player-avatar skeleton">
-                                <img src="https://i.imghippo.com/files/RNxU2250PE.jpg" alt="MURID URANUS FAZRY" data-img-loader>
-                            </div>
-                            <h3 class="player-name">MURID URANUS FAZRY</h3>
-                            <p class="player-rank">PRO PLAYER ALL HERO</p>
-                            <div class="player-socials">
-                                <a href="https://youtube.com/@uranusfazry?si=u-qyqLtcktit6zkW" target="_blank" title="YouTube">
-                                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                                </a>
-                            </div>
-                            <button class="duel-button">TANTANG</button>
+                        <h3 class="player-name">URANUS FAZRY</h3>
+                        <p class="player-rank">TOP GLOBAL 1 URANUS</p>
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@uranusfazry" target="_blank">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                            </a>
                         </div>
+                        <button class="duel-btn">Tantang</button>
                     </div>
-                </section>
-            </div>
-        </main>
+                    <div class="duel-player">
+                        <div class="player-avatar">
+                            <img src="https://i.imghippo.com/files/RNxU2250PE.jpg" alt="Murid Uranus">
+                        </div>
+                        <h3 class="player-name">MURID URANUS FAZRY</h3>
+                        <p class="player-rank">PRO PLAYER ALL HERO</p>
+                        <div class="social-links">
+                            <a href="https://youtube.com/@uranusfazry" target="_blank">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </a>
+                        </div>
+                        <button class="duel-btn">Tantang</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-        <footer id="about">
-            <div class="footer-links">
-                <a href="#">Ketentuan</a>
-                <a href="#">Privasi</a>
-                <a href="#">FAQ</a>
-                <a href="#">Dukungan</a>
-            </div>
-            <p class="copyright">© 2025 MLBB BY ONE PROFESIONAL. Tidak berafiliasi dengan Moonton.</p>
-        </footer>
-    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Ketentuan</a>
+            <a href="#">Privasi</a>
+            <a href="#">FAQ</a>
+            <a href="#">Dukungan</a>
+        </div>
+        <p class="copyright">© 2025 BY ONE MLBB PROFESIONAL. Tidak berafiliasi dengan Moonton.</p>
+    </footer>
 
-    <div id="toast-notification"></div>
+    <div class="toast" id="toast"></div>
     
-    <div id="dark-mode-toggle">
-        <button class="ui-control-button" title="Toggle Dark/Light Mode">🌓</button>
-    </div>
-
-    <div id="music-controls">
-        <button id="music-toggle-btn" class="ui-control-button" title="Toggle Music">
-            <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-            <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="1" x2="1" y2="23"></line></svg>
+    <div class="ui-controls">
+        <button class="control-btn" id="music-btn" title="Toggle Music">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
         </button>
     </div>
-    
-    <audio id="background-music" loop>
+
+    <div class="watermark">©URANUSFAZRY</div>
+
+    <audio id="bg-music" loop>
         <source src="https://c.top4top.io/m_3457ukcau0.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealButton = document.getElementById('reveal-button');
-            const contentToReveal = document.getElementById('main-content');
-            const bgMusic = document.getElementById('background-music');
-            const toast = document.getElementById('toast-notification');
-            const body = document.body;
-            const darkModeToggle = document.getElementById('dark-mode-toggle');
-            const musicControls = document.getElementById('music-controls');
-            const musicToggleButton = document.getElementById('music-toggle-btn');
-            const iconSoundOn = document.getElementById('icon-sound-on');
-            const iconSoundOff = document.getElementById('icon-sound-off');
+        // Particle System
+        const particleContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particleContainer.appendChild(particle);
+        }
 
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-
-            function showToast(message) {
-                toast.textContent = message;
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 3000);
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        });
+
+        // Reveal Content & Music
+        const revealBtn = document.getElementById('reveal-btn');
+        const mainContent = document.getElementById('main-content');
+        const bgMusic = document.getElementById('bg-music');
+        const toast = document.getElementById('toast');
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        revealBtn.addEventListener('click', () => {
+            mainContent.classList.remove('hidden');
+            bgMusic.play().catch(err => {
+                console.log('Auto-play prevented:', err);
+                showToast('Click music button to start audio');
+            });
+            revealBtn.textContent = 'Welcome to the Arena';
+            revealBtn.disabled = true;
+            revealBtn.style.opacity = '0.6';
+            revealBtn.style.cursor = 'default';
             
-            if (revealButton && contentToReveal && bgMusic) {
-                revealButton.addEventListener('click', () => {
-                    if (contentToReveal.classList.contains('hidden')) {
-                        contentToReveal.classList.remove('hidden');
-                        
-                        const playPromise = bgMusic.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(error => {
-                                console.error("Gagal memutar musik:", error);
-                                showToast("Browser memblokir pemutaran otomatis.");
-                            });
-                        }
-                        
-                        musicControls.classList.add('visible');
-                        
-                        showToast("Musik dimulai... Selamat bertarung!");
-                        revealButton.textContent = "SELAMAT DATANG DI ARENA";
-                        revealButton.style.cursor = "default";
-                        revealButton.disabled = true;
-                        
-                        setTimeout(() => {
-                           document.querySelector('#features').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }, 200);
-                    }
-                }, { once: true });
-            }
+            setTimeout(() => {
+                document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        });
 
-            if (musicToggleButton) {
-                musicToggleButton.addEventListener('click', () => {
-                    bgMusic.muted = !bgMusic.muted;
-                    if (bgMusic.muted) {
-                        iconSoundOn.style.display = 'none';
-                        iconSoundOff.style.display = 'block';
-                        showToast("Musik dimatikan.");
-                    } else {
-                        iconSoundOn.style.display = 'block';
-                        iconSoundOff.style.display = 'none';
-                        showToast("Musik dinyalakan.");
-                    }
-                });
-            }
+        // Music Control
+        const musicBtn = document.getElementById('music-btn');
+        let isMuted = false;
 
-            document.querySelectorAll('.duel-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const playerName = this.closest('.duel-player').querySelector('.player-name').textContent;
-                    showToast(`Permintaan duel dikirim ke ${playerName}!`);
-                    this.textContent = 'MENUNGGU...';
-                    this.style.opacity = '0.7';
-                    this.disabled = true;
-                    setTimeout(() => {
-                        this.textContent = 'TANTANG';
-                        this.style.opacity = '1';
-                        this.disabled = false;
-                    }, 2000);
-                });
+        musicBtn.addEventListener('click', () => {
+            isMuted = !isMuted;
+            bgMusic.muted = isMuted;
+            showToast(isMuted ? 'Music Muted' : 'Music Playing');
+        });
+
+        // Duel Buttons
+        document.querySelectorAll('.duel-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const playerName = this.closest('.duel-player').querySelector('.player-name').textContent;
+                showToast(`Challenge sent to ${playerName}!`);
+                this.textContent = 'Waiting...';
+                this.disabled = true;
+                setTimeout(() => {
+                    this.textContent = 'Tantang';
+                    this.disabled = false;
+                }, 2000);
             });
+        });
 
-            if (darkModeToggle) {
-                darkModeToggle.addEventListener('click', () => {
-                    body.classList.toggle('light-mode');
-                });
-            }
-
-            const imagesToLoad = document.querySelectorAll('img[data-img-loader]');
-            imagesToLoad.forEach(img => {
-                const removeSkeleton = () => {
-                    const parent = img.parentElement;
-                    if (parent && parent.classList.contains('skeleton')) {
-                        parent.classList.remove('skeleton');
-                    }
-                };
-                if (img.complete) {
-                    removeSkeleton();
-                } else {
-                    img.addEventListener('load', removeSkeleton);
-                    img.addEventListener('error', () => {
-                        console.error('Gagal memuat gambar:', img.src);
-                        removeSkeleton();
-                    });
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-    </script>
-    <script>
-      (function() {
-        function initializeWatermark() {
-            const watermarkHTML = `
-              <div id="futuristic-watermark" title="Design by ©URANUSFAZRY">
-                <canvas id="particle-canvas"></canvas>
-                <div class="f-content-wrapper">
-                  <div id="f-main-content" class="f-content">
-                    <div class="f-logo-container">
-                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M20 20 L80 20 L80 80 L20 80 Z" stroke-opacity="0.5"/>
-                          <path d="M50 5 L95 50 L50 95 L5 50 Z"/>
-                      </svg>
-                    </div>
-                    <span id="f-watermark-text">©URANUSFAZRY</span>
-                  </div>
-                  <div id="f-follow-content" class="f-content hidden">
-                      <span id="f-follow-message"></span>
-                  </div>
-                </div>
-              </div>
-            `;
-            document.body.insertAdjacentHTML('beforeend', watermarkHTML);
-
-            const watermarkEl = document.getElementById('futuristic-watermark');
-            const textEl = document.getElementById('f-watermark-text');
-            const logoEl = watermarkEl.querySelector('.f-logo-container');
-            const mainContentEl = document.getElementById('f-main-content');
-            const followContentEl = document.getElementById('f-follow-content');
-            const followMessageEl = document.getElementById('f-follow-message');
-            
-            let isAnimating = false;
-            let autoPlayInterval = null;
-            let currentSequence = 0;
-            const sequenceActions = ['scramble', 'logo', 'youtube', 'tiktok', 'reset'];
-
-            const canvas = document.getElementById('particle-canvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            const resizeCanvas = () => { if (watermarkEl) { canvas.width = watermarkEl.offsetWidth; canvas.height = watermarkEl.offsetHeight; } };
-            class Particle {
-                constructor() { this.reset(); this.baseSpeedX = (Math.random() - 0.5) * 0.5; this.baseSpeedY = (Math.random() - 0.5) * 0.5; this.speedX = this.baseSpeedX; this.speedY = this.baseSpeedY; }
-                update() {
-                    this.x += this.speedX; this.y += this.speedY; this.opacity -= this.fadeSpeed;
-                    if (this.opacity <= 0 || this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) { this.reset(); }
-                }
-                draw() {
-                    const style = getComputedStyle(watermarkEl);
-                    const hue = style.getPropertyValue('--particle-base-hue').trim();
-                    const lightness = parseFloat(style.getPropertyValue('--particle-base-lightness').trim());
-                    ctx.globalAlpha = this.opacity;
-                    ctx.fillStyle = `hsl(${hue}, 100%, ${lightness + this.opacity * 40}%)`;
-                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-                }
-                reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.opacity = Math.random() * 0.5 + 0.2; this.size = Math.random() * 1.5 + 0.5; this.fadeSpeed = Math.random() * 0.015 + 0.005; }
-            }
-            const animateParticles = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); ctx.globalAlpha = 1.0; requestAnimationFrame(animateParticles); };
-            
-            const textScramble = (el) => {
-                const originalText = "©URANUSFAZRY";
-                const chars = '!<>*#{}[]'; let frame = 0; isAnimating = true;
-                const interval = setInterval(() => {
-                    el.innerText = originalText.split('').map((char, i) => { const p = (frame - i * 2) / 15; if (p < 0) return ' '; if (p > 1) return char; return chars[Math.floor(Math.random() * chars.length)]; }).join('');
-                    if (frame >= originalText.length * 2 + 15) { clearInterval(interval); el.innerText = originalText; isAnimating = false; } frame++;
-                }, 30);
-            };
-
-            const typewriter = (el, text) => {
-                let i = 0; el.innerHTML = ""; isAnimating = true;
-                const interval = setInterval(() => {
-                    if (i < text.length) { el.innerHTML += text.charAt(i); i++; } 
-                    else { clearInterval(interval); isAnimating = false; }
-                }, 50);
-            };
-
-            const runAutoSequence = () => {
-                if (isAnimating) return;
-                const action = sequenceActions[currentSequence];
-                switch (action) {
-                    case 'scramble': textScramble(textEl); break;
-                    case 'logo':
-                        isAnimating = true;
-                        logoEl.classList.add('reacting');
-                        logoEl.addEventListener('animationend', () => { logoEl.classList.remove('reacting'); isAnimating = false; }, { once: true });
-                        break;
-                    case 'youtube':
-                        isAnimating = true;
-                        mainContentEl.classList.add('hidden');
-                        setTimeout(() => {
-                            followContentEl.classList.remove('hidden');
-                            typewriter(followMessageEl, "Follow uranusfazry YouTube");
-                        }, 400);
-                        break;
-                    case 'tiktok': 
-                        typewriter(followMessageEl, "Follow uranusfazry TikTok"); 
-                        break;
-                    case 'reset':
-                        isAnimating = true;
-                        followContentEl.classList.add('hidden');
-                        setTimeout(() => {
-                            mainContentEl.classList.remove('hidden');
-                            isAnimating = false;
-                        }, 400);
-                        break;
-                }
-                currentSequence = (currentSequence + 1) % sequenceActions.length;
-            };
-
-            const startAutoPlay = () => {
-                if (autoPlayInterval) clearInterval(autoPlayInterval);
-                runAutoSequence();
-                autoPlayInterval = setInterval(runAutoSequence, 3500);
-            };
-
-            watermarkEl.addEventListener('click', () => { watermarkEl.classList.toggle('light-mode'); });
-            
-            const init = () => {
-                resizeCanvas();
-                for (let i = 0; i < 40; i++) particles.push(new Particle());
-                animateParticles();
-                window.addEventListener('resize', resizeCanvas);
-                startAutoPlay();
-            };
-            init();
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeWatermark);
-        } else {
-            initializeWatermark();
-        }
-      })();
     </script>
 </body>
 </html>
