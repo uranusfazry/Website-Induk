@@ -35,6 +35,18 @@
             position: relative;
         }
 
+        /* Styles for Ad Containers */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: rgba(10,10,10,0.5);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 10px;
+        }
+
         /* Animated Background Effects */
         .void-canvas {
             position: fixed;
@@ -837,6 +849,76 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 0 30px rgba(220, 20, 60, 0.8);
         }
+        
+        /* Interstitial Ad Styles */
+        #interstitial-ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #interstitial-ad-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #interstitial-ad-content {
+            position: relative;
+            background: var(--bg-abyss);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--accent-crimson);
+            box-shadow: var(--glow-red);
+            transform: scale(0.7);
+            transition: transform 0.5s ease;
+        }
+
+        #interstitial-ad-overlay.show #interstitial-ad-content {
+            transform: scale(1);
+        }
+
+        #close-interstitial {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-crimson);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            font-size: 2rem;
+            line-height: 36px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 15px var(--accent-crimson);
+        }
+
+        #close-interstitial:hover {
+            transform: rotate(180deg) scale(1.1);
+            background: var(--accent-blood);
+        }
+
+        .ad-container-interstitial {
+            min-width: 300px;
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -925,6 +1007,21 @@ Penghancur harapan yang hadir terakhir.</p>
             </div>
         </section>
 
+        <!-- AD 728x90 START -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '33386ecbdc2851e79fd6985ee58926ee',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/33386ecbdc2851e79fd6985ee58926ee/invoke.js"></script>
+        </div>
+        <!-- AD 728x90 END -->
+
         <div id="main-content" class="hidden">
             <section id="features" class="features-section">
                 <h2 class="section-title">Arsenal of Darkness</h2>
@@ -951,8 +1048,31 @@ Penghancur harapan yang hadir terakhir.</p>
                         <p>Hadiah untuk para penyintas... kutukan bagi yang gagal. Raih skin, lencana, dan gelar bertema kegelapan simbol kejayaan bagi mereka yang menaklukkan arena.</p>
                     </div>
                 </div>
+                 <!-- AD 160x600 START -->
+                <div class="ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '2ef777b4b778901f27cd13a5fed78c08',
+                            'format' : 'iframe',
+                            'height' : 600,
+                            'width' : 160,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//librarysituation.com/2ef777b4b778901f27cd13a5fed78c08/invoke.js"></script>
+                </div>
+                <!-- AD 160x600 END -->
             </section>
 
+            <!-- NATIVE BANNER START -->
+            <div class="ad-container">
+                <div>
+                    <script async="async" data-cfasync="false" src="//librarysituation.com/c91a43f99815ef02a1be26a4a6f4ce75/invoke.js"></script>
+                    <div id="container-c91a43f99815ef02a1be26a4a6f4ce75"></div>
+                </div>
+            </div>
+            <!-- NATIVE BANNER END -->
+            
             <section id="event" class="event-section">
                 <div class="event-container">
                     <div class="event-header">
@@ -968,6 +1088,20 @@ Penghancur harapan yang hadir terakhir.</p>
                                 <h3 class="master-name">MASTER FAZRY</h3>
                                 <p class="master-rank">Sang Raja Uranus</p>
                             </div>
+                             <!-- AD 160x300 START -->
+                            <div class="ad-container">
+                                <script type="text/javascript">
+                                    atOptions = {
+                                        'key' : '46386ba29265fc0c32000d6055ba6a34',
+                                        'format' : 'iframe',
+                                        'height' : 300,
+                                        'width' : 160,
+                                        'params' : {}
+                                    };
+                                </script>
+                                <script type="text/javascript" src="//librarysituation.com/46386ba29265fc0c32000d6055ba6a34/invoke.js"></script>
+                            </div>
+                            <!-- AD 160x300 END -->
                         </div>
                         <div class="rules-section">
                             <h3>Peraturan Satu VS Satu</h3>
@@ -997,6 +1131,20 @@ Penghancur harapan yang hadir terakhir.</p>
                                     </ul>
                                 </li>
                             </ol>
+                            <!-- AD 300x250 START -->
+                            <div class="ad-container">
+                                <script type="text/javascript">
+                                    atOptions = {
+                                        'key' : 'f3c14a19bd07847d6f1a32686ac4be16',
+                                        'format' : 'iframe',
+                                        'height' : 250,
+                                        'width' : 300,
+                                        'params' : {}
+                                    };
+                                </script>
+                                <script type="text/javascript" src="//librarysituation.com/f3c14a19bd07847d6f1a32686ac4be16/invoke.js"></script>
+                            </div>
+                            <!-- AD 300x250 END -->
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 3rem;">
@@ -1036,11 +1184,39 @@ Penghancur harapan yang hadir terakhir.</p>
                         <button class="duel-btn">Tantang</button>
                     </div>
                 </div>
+                <!-- AD 320x50 START -->
+                <div class="ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'af67f52a475b369ab88e56ca923db5a7',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//librarysituation.com/af67f52a475b369ab88e56ca923db5a7/invoke.js"></script>
+                </div>
+                 <!-- AD 320x50 END -->
             </section>
         </div>
     </main>
 
     <footer>
+        <!-- AD 468x60 START -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '2dfdcd4d8c1c4bac7bd30f084cdaaf2b',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//librarysituation.com/2dfdcd4d8c1c4bac7bd30f084cdaaf2b/invoke.js"></script>
+        </div>
+        <!-- AD 468x60 END -->
         <div class="footer-links">
             <a href="#">Ketentuan</a>
             <a href="#">Privasi</a>
@@ -1066,8 +1242,57 @@ Penghancur harapan yang hadir terakhir.</p>
     <audio id="bg-music" loop>
         <source src="https://c.top4top.io/m_3457ukcau0.mp3" type="audio/mpeg">
     </audio>
+    
+    <!-- Fullscreen Interstitial Ad Start -->
+    <div id="interstitial-ad-overlay">
+        <div id="interstitial-ad-content">
+            <button id="close-interstitial">&times;</button>
+            <!-- Menggunakan iklan 300x250 sebagai konten interstitial -->
+            <div class="ad-container-interstitial">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'f3c14a19bd07847d6f1a32686ac4be16',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//librarysituation.com/f3c14a19bd07847d6f1a32686ac4be16/invoke.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- Fullscreen Interstitial Ad End -->
+    
+    <!-- POPUNDER AD SCRIPT START -->
+    <script type='text/javascript' src='//librarysituation.com/a8/af/54/a8af549d7bed639f29f6fcad465d3eb6.js'></script>
+    <!-- POPUNDER AD SCRIPT END -->
+    
+    <!-- SOCIALBAR AD SCRIPT START -->
+    <script type='text/javascript' src='//librarysituation.com/04/d7/24/04d72406f7999b6b9e36c60ca87f8916.js'></script>
+    <!-- SOCIALBAR AD SCRIPT END -->
 
     <script>
+        // Interstitial Ad Logic
+        const interstitialOverlay = document.getElementById('interstitial-ad-overlay');
+        const closeInterstitialBtn = document.getElementById('close-interstitial');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cek apakah iklan sudah ditampilkan di sesi ini
+            if (!sessionStorage.getItem('interstitialShown')) {
+                // Tampilkan iklan setelah jeda singkat agar halaman sempat dimuat
+                setTimeout(() => {
+                    interstitialOverlay.classList.add('show');
+                    // Tandai bahwa iklan sudah ditampilkan untuk sesi ini
+                    sessionStorage.setItem('interstitialShown', 'true');
+                }, 1000); // Jeda 1 detik
+            }
+        });
+
+        closeInterstitialBtn.addEventListener('click', () => {
+            interstitialOverlay.classList.remove('show');
+        });
+
         // Particle System
         const particleContainer = document.getElementById('particles');
         for (let i = 0; i < 50; i++) {
@@ -1104,8 +1329,8 @@ Penghancur harapan yang hadir terakhir.</p>
         revealBtn.addEventListener('click', () => {
             mainContent.classList.remove('hidden');
             bgMusic.play().catch(err => {
-                console.log('Auto-play prevented:', err);
-                showToast('Click music button to start audio');
+                console.log('Auto-play dicegah:', err);
+                showToast('Klik tombol musik untuk memulai audio');
             });
             revealBtn.textContent = 'Welcome to the Arena';
             revealBtn.disabled = true;
@@ -1124,15 +1349,15 @@ Penghancur harapan yang hadir terakhir.</p>
         musicBtn.addEventListener('click', () => {
             isMuted = !isMuted;
             bgMusic.muted = isMuted;
-            showToast(isMuted ? 'Music Muted' : 'Music Playing');
+            showToast(isMuted ? 'Musik Dimatikan' : 'Musik Diputar');
         });
 
         // Duel Buttons
         document.querySelectorAll('.duel-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const playerName = this.closest('.duel-player').querySelector('.player-name').textContent;
-                showToast(`Challenge sent to ${playerName}!`);
-                this.textContent = 'Waiting...';
+                showToast(`Tantangan terkirim ke ${playerName}!`);
+                this.textContent = 'Menunggu...';
                 this.disabled = true;
                 setTimeout(() => {
                     this.textContent = 'Tantang';
@@ -1154,3 +1379,4 @@ Penghancur harapan yang hadir terakhir.</p>
     </script>
 </body>
 </html>
+
